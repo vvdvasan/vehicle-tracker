@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-i7x9tt^1hdfggql$647z(-=&y_(gof69p_f3a_d*6o=-(ybi@3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['vehicle-tracker-ytb8.onrender.com']
 
 # Application definition
 
