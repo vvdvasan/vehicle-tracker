@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Service Tracker</title>
+    <style>
+        body { font-family: Arial; background: #1a1a2e; color: #eee; padding: 20px; }
+        h1 { color: #e94560; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #444; text-align: left; }
+        th { background: #16213e; color: #e94560; }
+        tr:hover { background: #16213e; }
+        form { background: #16213e; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        input, textarea { width: 100%; padding: 8px; margin: 5px 0 15px; background: #0f3460; color: #eee; border: 1px solid #444; border-radius: 4px; }
+        button { background: #e94560; color: white; padding: 10px 25px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #c73652; }
+        label { color: #a8a8b3; }
+    </style>
+</head>
+<body>
+    <h1>🚗 Vehicle Service Tracker</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Record</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Vehicle</th>
+            <th>Service Type</th>
+            <th>Date</th>
+            <th>Notes</th>
+            <th>Next Service</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.vehicle_name }}</td>
+            <td>{{ record.service_type }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.notes }}</td>
+            <td>{{ record.next_service_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
